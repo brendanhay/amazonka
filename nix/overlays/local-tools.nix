@@ -6,13 +6,7 @@ let
 
   ghcVersion = cabalProject.compiler-nix-name;
 
-  haskellNix = prev.haskell-nix // {
-    toolPackageName = prev.haskell-nix.toolPackageName // {
-      shellcheck = "ShellCheck";
-    };
-  };
-
-  hackageTool = haskellNix.tool ghcVersion;
+  hackageTool = prev.haskell-nix.tool ghcVersion;
 
 in {
   localTools = {

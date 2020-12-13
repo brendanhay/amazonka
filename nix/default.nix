@@ -25,6 +25,7 @@ let
     # Add top-level `.sources` attribute.
     (_final: _prev: { sources = finalSources; })
 
+    (import ./overlays/haskell.nix)
     (import ./overlays/cabal-project.nix { inherit ghcVersion; })
     (import ./overlays/local-tools.nix)
     (import ./overlays/local-lib.nix)

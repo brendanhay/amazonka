@@ -11,10 +11,9 @@
 -- Portability : non-portable (GHC extensions)
 module Test.AWS.Data.Time (tests) where
 
-import Network.AWS.Prelude
-import Network.AWS.Data.Time
 import qualified Data.Text as Text
 import qualified Data.Time.Clock.POSIX as Time.POSIX
+import Network.AWS.Data.Time
 import Test.AWS.Util
 import Test.Tasty
 

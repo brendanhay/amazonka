@@ -82,7 +82,7 @@ defaultEndpoint (_svcPrefix -> p) r = go p
     virginia = r == NorthVirginia
     frankfurt = r == Frankfurt
     china = r == Beijing
-    govcloud = r == GovCloud || r == GovCloudFIPS
+    govcloud = r == GovCloudWest || r == GovCloudEast
 
     s3 = r `Set.member` except
 
@@ -106,8 +106,8 @@ defaultEndpoint (_svcPrefix -> p) r = go p
 
     except =
       Set.fromList
-        [ GovCloud,
-          GovCloudFIPS,
+        [ GovCloudEast,
+          GovCloudWest,
           Ireland,
           NorthCalifornia,
           NorthVirginia,

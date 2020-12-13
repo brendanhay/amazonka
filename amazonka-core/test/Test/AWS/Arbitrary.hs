@@ -110,8 +110,8 @@ instance Arbitrary Region where
         NorthVirginia,
         NorthCalifornia,
         Oregon,
-        GovCloud,
-        GovCloudFIPS,
+        GovCloudWest,
+        GovCloudEast,
         SaoPaulo
       ]
 

@@ -107,30 +107,32 @@ module Network.AWS.Types
 
     -- * Regions
     Region
-      ( Region',
-        NorthVirginia,
+      ( NorthVirginia,
         Ohio,
         NorthCalifornia,
         Oregon,
+        CapeTown,
         Montreal,
+        Frankfurt,
+        Ireland,
+        London,
+        Milan,
+        Paris,
+        Stockholm,
         HongKong,
         Tokyo,
         Seoul,
         Osaka,
-        Mumbai,
         Singapore,
         Sydney,
+        Mumbai,
+        Bahrain,
         SaoPaulo,
-        Ireland,
-        London,
-        Paris,
-        Frankfurt,
-        Stockholm,
+        GovCloudWest,
         GovCloudEast,
-        GovCloud,
-        GovCloudFIPS,
         Beijing,
-        Ningxia
+        Ningxia,
+        Region'
       ),
 
     -- * Endpoints
@@ -739,8 +741,29 @@ pattern NorthCalifornia = Region' "us-west-1"
 pattern Oregon :: Region
 pattern Oregon = Region' "us-west-2"
 
+pattern CapeTown :: Region
+pattern CapeTown = Region' "af-south-1"
+
 pattern Montreal :: Region
 pattern Montreal = Region' "ca-central-1"
+
+pattern Frankfurt :: Region
+pattern Frankfurt = Region' "eu-central-1"
+
+pattern Ireland :: Region
+pattern Ireland = Region' "eu-west-1"
+
+pattern London :: Region
+pattern London = Region' "eu-west-2"
+
+pattern Milan :: Region
+pattern Milan = Region' "eu-south-1"
+
+pattern Paris :: Region
+pattern Paris = Region' "eu-west-3"
+
+pattern Stockholm :: Region
+pattern Stockholm = Region' "eu-north-1"
 
 pattern HongKong :: Region
 pattern HongKong = Region' "ap-east-1"
@@ -754,41 +777,26 @@ pattern Seoul = Region' "ap-northeast-2"
 pattern Osaka :: Region
 pattern Osaka = Region' "ap-northeast-3"
 
-pattern Mumbai :: Region
-pattern Mumbai = Region' "ap-south-1"
-
 pattern Singapore :: Region
 pattern Singapore = Region' "ap-southeast-1"
 
 pattern Sydney :: Region
 pattern Sydney = Region' "ap-southeast-2"
 
+pattern Mumbai :: Region
+pattern Mumbai = Region' "ap-south-1"
+
+pattern Bahrain :: Region
+pattern Bahrain = Region' "me-south-1"
+
 pattern SaoPaulo :: Region
 pattern SaoPaulo = Region' "sa-east-1"
 
-pattern Ireland :: Region
-pattern Ireland = Region' "eu-west-1"
-
-pattern London :: Region
-pattern London = Region' "eu-west-2"
-
-pattern Paris :: Region
-pattern Paris = Region' "eu-west-3"
-
-pattern Frankfurt :: Region
-pattern Frankfurt = Region' "eu-central-1"
-
-pattern Stockholm :: Region
-pattern Stockholm = Region' "eu-north-1"
+pattern GovCloudWest :: Region
+pattern GovCloudWest = Region' "us-gov-west-1"
 
 pattern GovCloudEast :: Region
 pattern GovCloudEast = Region' "us-gov-east-1"
-
-pattern GovCloud :: Region
-pattern GovCloud = Region' "us-gov-west-1"
-
-pattern GovCloudFIPS :: Region
-pattern GovCloudFIPS = Region' "fips-us-gov-west-1"
 
 pattern Beijing :: Region
 pattern Beijing = Region' "cn-north-1"
@@ -801,23 +809,25 @@ pattern Ningxia = Region' "cn-northwest-1"
   Ohio,
   NorthCalifornia,
   Oregon,
+  CapeTown,
   Montreal,
+  Frankfurt,
+  Ireland,
+  London,
+  Milan,
+  Paris,
+  Stockholm,
   HongKong,
   Tokyo,
   Seoul,
   Osaka,
-  Mumbai,
   Singapore,
   Sydney,
+  Mumbai,
+  Bahrain,
   SaoPaulo,
-  Ireland,
-  London,
-  Paris,
-  Frankfurt,
-  Stockholm,
+  GovCloudWest,
   GovCloudEast,
-  GovCloud,
-  GovCloudFIPS,
   Beijing,
   Ningxia,
   Region'

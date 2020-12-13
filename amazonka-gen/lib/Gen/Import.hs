@@ -52,7 +52,7 @@ productImports l p =
   where
     moduleDependencies = Set.intersection dependencies moduleShapes
     dependencies = Set.map mkNS $ _prodDeps p
-    moduleShapes = Set.fromList (mkNS . typeId . identifier <$> l ^.. shapes . Lens.each)
+    moduleShapes = Set.fromList (mkNS . typeId . identifier <$> l ^.. shapes . Lens.traversed)
 
 waiterImports :: Library -> [NS]
 waiterImports l =
@@ -61,7 +61,7 @@ waiterImports l =
     qualifiedLude :
     "qualified Network.AWS.Waiter as Wait" :
     l ^. typesNS :
-    map (operationNS ns . _waitOpName) (l ^.. waiters . Lens.each)
+    map (operationNS ns . _waitOpName) (l ^.. waiters . Lens.traversed)
   where
     ns = l ^. libraryNS
 

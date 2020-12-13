@@ -16,7 +16,7 @@ import qualified Control.Monad.Except as Except
 import qualified Control.Monad.State.Strict as State
 import qualified Data.Foldable as Foldable
 import qualified Data.Graph as Graph
-import qualified Data.HashMap.Strict as HashMap
+import qualified Data.HashMap.Strict.InsOrd as HashMap
 import qualified Data.HashSet as HashSet
 import qualified Data.Maybe as Maybe
 import qualified Data.Tree as Tree
@@ -50,9 +50,9 @@ ignoreUnusedShapes ::
   Service Maybe (RefF ()) (ShapeF ()) c ->
   Either String (Service Maybe (RefF ()) (ShapeF ()) c)
 ignoreUnusedShapes svc = do
-  shapes' :: HashMap Id (Shape Id) <- elaborate (_shapes svc)
+  shapes' :: InsOrdHashMap Id (Shape Id) <- elaborate (_shapes svc)
 
-  let shapeIds :: HashMap Id [Id]
+  let shapeIds :: InsOrdHashMap Id [Id]
       shapeIds =
         HashMap.map Foldable.toList shapes'
 
@@ -145,7 +145,7 @@ renderShapes cfg svc = do
         _waiters = zs
       }
 
-type MemoR = StateT (HashMap Id Relation, HashSet (Id, Direction, Id)) (Either String)
+type MemoR = StateT (InsOrdHashMap Id Relation, HashSet (Id, Direction, Id)) (Either String)
 
 -- | Determine the relation for operation payloads, both input and output.
 --
@@ -153,9 +153,9 @@ type MemoR = StateT (HashMap Id Relation, HashSet (Id, Direction, Id)) (Either S
 -- used by 'setDefaults'.
 relations ::
   Show a =>
-  HashMap Id (Operation Maybe (RefF b) c) ->
-  HashMap Id (ShapeF a) ->
-  Either String (HashMap Id Relation)
+  InsOrdHashMap Id (Operation Maybe (RefF b) c) ->
+  InsOrdHashMap Id (ShapeF a) ->
+  Either String (InsOrdHashMap Id Relation)
 relations os ss = fst <$> State.execStateT (traverse go os) (mempty, mempty)
   where
     -- FIXME: opName here is incorrect as a parent.
@@ -209,7 +209,7 @@ solve cfg ss = State.evalState (go ss) (replaced typeOf cfg)
   where
     go = traverse (annotate Solved id (pure . typeOf))
 
-    replaced :: (Replace -> a) -> Config -> HashMap Id a
+    replaced :: (Replace -> a) -> Config -> InsOrdHashMap Id a
     replaced f =
       HashMap.fromList
         . map (_replaceName &&& f)
@@ -217,7 +217,7 @@ solve cfg ss = State.evalState (go ss) (replaced typeOf cfg)
         . vMapMaybe _replacedBy
         . _typeOverrides
 
-type MemoS a = StateT (HashMap Id a) (Either String)
+type MemoS a = StateT (InsOrdHashMap Id a) (Either String)
 
 -- | Filter the ids representing operation input/outputs from the supplied map,
 -- and attach the associated shape to the appropriate operation.
@@ -226,9 +226,9 @@ type MemoS a = StateT (HashMap Id a) (Either String)
 -- the respective data types.
 separate ::
   (Show a, HasRelation a) =>
-  HashMap Id (Operation Identity (RefF b) c) ->
-  HashMap Id a ->
-  Either String (HashMap Id (Operation Identity (RefF a) c), HashMap Id a)
+  InsOrdHashMap Id (Operation Identity (RefF b) c) ->
+  InsOrdHashMap Id a ->
+  Either String (InsOrdHashMap Id (Operation Identity (RefF a) c), InsOrdHashMap Id a)
 separate os = State.runStateT (traverse go os)
   where
     go ::

@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- |
 -- Module      : Gen.Types.Map
 -- Copyright   : (c) 2013-2020 Brendan Hay
@@ -11,32 +13,36 @@
 module Gen.Types.Map where
 
 import qualified Control.Lens as Lens
-import qualified Data.HashMap.Strict as HashMap
+import Data.Functor.Classes (Show1 (liftShowsPrec))
+import qualified Data.HashMap.Strict.InsOrd as HashMap
 import qualified Data.Hashable as Hashable
 import qualified Data.Maybe as Maybe
 import qualified Data.Tuple as Tuple
 import Gen.Prelude
 
+instance Show k => Show1 (InsOrdHashMap k) where
+  liftShowsPrec sv slv d = liftShowsPrec sv slv d . HashMap.toHashMap
+
 vMapMaybe ::
   (Eq k, Hashable k) =>
   (a -> Maybe b) ->
-  HashMap k a ->
-  HashMap k b
+  InsOrdHashMap k a ->
+  InsOrdHashMap k b
 vMapMaybe f = runIdentity . kvTraverseMaybe (const (pure . f))
 
-kvInvert :: (Eq v, Hashable v) => HashMap k v -> HashMap v k
+kvInvert :: (Eq v, Hashable v) => InsOrdHashMap k v -> InsOrdHashMap v k
 kvInvert = kvTraversal %~ Tuple.swap
 
 kvTraverseMaybe ::
   (Applicative f, Eq k, Hashable k) =>
   (k -> a -> f (Maybe b)) ->
-  HashMap k a ->
-  f (HashMap k b)
+  InsOrdHashMap k a ->
+  f (InsOrdHashMap k b)
 kvTraverseMaybe f =
   fmap (HashMap.map fromJust . HashMap.filter isJust)
     . HashMap.traverseWithKey f
 
 kvTraversal ::
   (Eq k', Hashable k') =>
-  Traversal (HashMap k v) (HashMap k' v') (k, v) (k', v')
+  Traversal (InsOrdHashMap k v) (InsOrdHashMap k' v') (k, v) (k', v')
 kvTraversal f = fmap HashMap.fromList . traverse f . HashMap.toList

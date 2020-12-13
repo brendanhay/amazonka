@@ -6,13 +6,25 @@
 -- | /See:/ '{{ shape.constructor.name }}' smart constructor.
 {% endif %}
 {{ shape.declaration }}
+{% for accessor in shape.accessors %}
+  {% if accessor.value.documentation %}
+    -- | {{ accessor.value.documentation }}
+  {% endif %}
+  {% if accessor.first %}{ {% else %}, {% endif %}{{ accessor.value.declaration }}
+  {% if accessor.last %}
+  }
+  {% endif %}
+{% endfor %}
+{% for deriving in shape.deriving %}
+  {{ deriving.value }}
+{% endfor %}
 
 {% if shape.constructor.documentation %}
 -- | {{ shape.constructor.documentation }}
 --
 {% endif %}
 {% for accessor in shape.accessors %}
--- * '{{ accessor.key }}' - {{ accessor.value }}
+-- * '{{ accessor.value.name }}' - {{ accessor.value.documentation }}
 {% endfor %}
 {{ shape.constructor.signature }}
 {{ shape.constructor.declaration }}

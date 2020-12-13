@@ -15,7 +15,7 @@ module Gen.AST.Data.Field where
 import qualified Control.Comonad.Cofree as Comonad.Cofree
 import qualified Control.Lens as Lens
 import qualified Data.Function as Function
-import qualified Data.HashMap.Strict as HashMap
+import qualified Data.HashMap.Strict.InsOrd as HashMap
 import qualified Data.List as List
 import qualified Data.Maybe as Maybe
 import qualified Data.Text as Text
@@ -88,7 +88,6 @@ mkFields ::
   StructF (Shape Solved) ->
   [Field]
 mkFields (Lens.view metadata -> m) s st =
-  sortFields rs $
     zipWith mk [1 ..] $ HashMap.toList (st ^. members)
   where
     mk :: Int -> (Id, Ref) -> Field
@@ -118,18 +117,6 @@ mkFields (Lens.view metadata -> m) s st =
     d = case s ^. relMode of
       Uni x -> Just x
       Bi -> Nothing
-
--- | Ensures that isStreaming fields appear last in the parameter ordering,
--- but doesn't affect the rest of the order which is determined by parsing
--- of the JSON service definition.
-sortFields :: [Id] -> [Field] -> [Field]
-sortFields xs =
-  zipWith (Lens.set fieldOrdinal) [1 ..]
-    -- FIXME: optimise
-    . List.sortBy (Function.on compare isStreaming)
-    . List.sortBy (Function.on compare idx)
-  where
-    idx x = fromMaybe (-1) $ List.elemIndex (_fieldId x) xs
 
 fieldAnn :: Lens' Field (Shape Solved)
 fieldAnn = fieldRef . refAnn

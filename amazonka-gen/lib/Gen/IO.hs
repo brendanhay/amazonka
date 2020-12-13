@@ -93,7 +93,7 @@ copyDir source target =
 readTemplate ::
   FilePath ->
   FilePath ->
-  StateT (HashMap Text (EDE.Result EDE.Template)) IO EDE.Template
+  StateT (InsOrdHashMap Text (EDE.Result EDE.Template)) IO EDE.Template
 readTemplate dir file = do
   let name = Text.pack path
       path = dir </> file

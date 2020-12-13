@@ -26,7 +26,7 @@ import qualified Text.XML as XML
 
 newtype Help = Help Text
   deriving stock (Eq)
-  deriving newtype (Semigroup, Monoid)
+  deriving newtype (Semigroup, Monoid, Hashable)
 
 -- | Empty Show instance to avoid verbose debugging output.
 instance Show Help where

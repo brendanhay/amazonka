@@ -24,7 +24,7 @@ import qualified Control.Monad.State.Strict as State
 import qualified Data.Bifunctor as Bifunctor
 import qualified Data.ByteString.Char8 as ByteString.Char8
 import qualified Data.Char as Char
-import qualified Data.HashMap.Strict as HashMap
+import qualified Data.HashMap.Strict.InsOrd as HashMap
 import qualified Data.List as List
 import qualified Data.Set as Set
 import qualified Data.Text as Text
@@ -56,9 +56,9 @@ operationData cfg m o = do
 
   xis <- requestInsts m (_opName o) h xr xs
 
-  mpage <- fmap (pp Print . pagerD xn) <$> pagerFields m o
+  mpage <- fmap (prettyPrint Block . pagerD xn) <$> pagerFields m o
 
-  let cls = pp Print (requestD cfg m h (xr, xis) (yr, ys))
+  let cls = prettyPrint Block (requestD cfg m h (xr, xis) (yr, ys))
       yis' = mempty
       xis' =
         maybe id (HashMap.insert "AWSPager") mpage
@@ -117,8 +117,8 @@ errorData m s i = Fun mk
       Fun'
         { _funName = p,
           _funDoc = h,
-          _funSig = pp None (errorS p),
-          _funDecl = pp Print (errorD m p status code),
+          _funSig = prettyPrint Inline (errorS p),
+          _funDecl = prettyPrint Block (errorD m p status code),
           _funPragmas = [Text.Lazy.fromStrict deprecated]
         }
 
@@ -142,7 +142,7 @@ patternData ::
   Protocol ->
   Solved ->
   Info ->
-  HashMap Id Text ->
+  InsOrdHashMap Id Text ->
   SData
 patternData p s i vs = Sum s mk (HashMap.keys instances)
   where
@@ -150,21 +150,30 @@ patternData p s i vs = Sum s mk (HashMap.keys instances)
       Sum'
         { _sumName = typeId name,
           _sumDoc = i ^. infoDocumentation,
-          _sumDecl = pp Print decl,
+          _sumDecl = prettyPrint Block decl,
           _sumCtor = constructor,
           _sumPatterns = patterns
         }
 
     decl =
-      dataD name [conD (Exts.ConDecl () (ident constructor) [(tycon "Lude.Text")])] $
-        derivingOf s
+      dataD
+        name
+        True
+        [ conD (Exts.ConDecl () (ident constructor) [(tycon "Lude.Text")])
+        ]
+        (derivingOf s)
 
     name = s ^. annId
 
     -- Disambiguate the constructor name to avoid clashes with type names.
     constructor = typeId name <> "'"
 
-    patterns = vs & kvTraversal %~ first (branchId (s ^. annPrefix))
+    patterns =
+      flip map (HashMap.toList vs) $ \(k, v) ->
+        Pattern'
+          { _patName = branchId (s ^. annPrefix) k,
+            _patText = v
+          }
 
     instances = ppInsts p name (shapeInsts p (s ^. relMode) [])
 
@@ -180,15 +189,35 @@ prodData m s st = (mk, fields)
       Prod'
         { _prodName = typeId n,
           _prodDoc = st ^. infoDocumentation,
-          _prodDecl = pp Print decl,
+          _prodDecl = prettyPrint Inline decl,
+          _prodDeriving = derivingClauses,
           _prodCtor = mkCtor,
           _prodLenses = map mkLens fields,
-          _prodAccessors =
-            HashMap.fromList [(fieldAccessor f, fieldHelp f) | f <- fields],
+          _prodAccessors = map mkAccessor fieldDecls,
           _prodDeps = dependencies
         }
 
-    decl = dataD n [recordD m n fields] (derivingOf s)
+    decl =
+      dataD
+        n
+        (length fields == 1)
+        [conD (Exts.ConDecl () (ident constructor) [])]
+        []
+
+    constructor = typeId n <> "'"
+
+    (name, fieldDecls) = recordD m n fields
+
+    derivingClauses =
+      map (prettyPrint Inline) $
+        derivingD (length fields == 1) (derivingOf s)
+
+    mkAccessor (label, decl, help) =
+        Accessor'
+          { _accessorName = label,
+            _accessorDecl = prettyPrint Inline decl,
+            _accessorDoc = help
+          }
 
     fields :: [Field]
     fields = mkFields m s st
@@ -203,8 +232,8 @@ prodData m s st = (mk, fields)
               <> Help (fieldAccessor f)
               <> "' with <https://hackage.haskell.org/package/generic-lens generic-lens> or "
               <> "<https://hackage.haskell.org/package/generic-optics generic-optics> instead.",
-          _funSig = pp None (lensS m (s ^. annType) f),
-          _funDecl = pp None (lensD m (s ^. annType) f),
+          _funSig = prettyPrint Inline (lensS m (s ^. annType) f),
+          _funDecl = prettyPrint Inline (lensD m (s ^. annType) f),
           _funPragmas = [Text.Lazy.fromStrict (lensDeprecated f)]
         }
 
@@ -213,8 +242,8 @@ prodData m s st = (mk, fields)
       Fun'
         { _funName = smartCtorId n,
           _funDoc = mkHelp,
-          _funSig = pp None (ctorS m n fields) & addParamComments fields,
-          _funDecl = pp Print (ctorD n fields),
+          _funSig = prettyPrint Inline (ctorS m n fields) & addParamComments fields,
+          _funDecl = prettyPrint Block (ctorD n fields),
           _funPragmas = []
         }
 
@@ -266,10 +295,10 @@ prodData m s st = (mk, fields)
 
     n = s ^. annId
 
-ppInsts :: Protocol -> Id -> [Inst] -> HashMap Text Text.Lazy.Text
+ppInsts :: Protocol -> Id -> [Inst] -> InsOrdHashMap Text Text.Lazy.Text
 ppInsts p n =
   HashMap.fromList
-    . map (\i -> (instToText i, pp Print (instanceD p n i)))
+    . map (\i -> (instToText i, prettyPrint Block (instanceD p n i)))
 
 serviceData ::
   HasMetadata a Identity =>
@@ -280,8 +309,8 @@ serviceData m r =
   Fun'
     { _funName = m ^. serviceConfig,
       _funDoc = Help help,
-      _funSig = pp None (serviceS m),
-      _funDecl = pp Print (serviceD m r),
+      _funSig = prettyPrint Inline (serviceS m),
+      _funDecl = prettyPrint Block (serviceD m r),
       _funPragmas = []
     }
   where
@@ -295,7 +324,7 @@ serviceData m r =
 waiterData ::
   HasMetadata a Identity =>
   a ->
-  HashMap Id (Operation Identity Ref b) ->
+  InsOrdHashMap Id (Operation Identity Ref b) ->
   Id ->
   Waiter Id ->
   Either String WData
@@ -307,8 +336,8 @@ waiterData m os n w = do
         Fun'
           { _funName = smartCtorId n,
             _funDoc = Help help,
-            _funSig = pp None (waiterS n wf),
-            _funDecl = pp Print (waiterD n wf),
+            _funSig = prettyPrint Inline (waiterS n wf),
+            _funDecl = prettyPrint Block (waiterD n wf),
             _funPragmas = []
           }
 
@@ -430,20 +459,18 @@ notation m nid = go nid
       "Unable to descend into nested reference "
         ++ show k
 
-data PP
-  = Print
-  | None
+data Layout
+  = Block
+  | Inline
   deriving stock (Eq)
 
-pp :: Pretty a => PP -> a -> Rendered
-pp i d = Text.Lazy.fromStrict $ Text.Encoding.decodeUtf8 printed
+prettyPrint :: Pretty a => Layout -> a -> Rendered
+prettyPrint layout d =
+  Text.Lazy.dropWhile Char.isSpace . Text.Lazy.pack $
+    Exts.prettyPrintWithMode mode d
   where
-    printed =
-      ByteString.Char8.dropWhile Char.isSpace . ByteString.Char8.pack $
-        Exts.prettyPrintWithMode mode d
-
     mode
-      | i == Print = Exts.defaultMode
+      | layout == Block = Exts.defaultMode
       | otherwise =
         Exts.defaultMode
           { Exts.layout = Exts.PPInLine,

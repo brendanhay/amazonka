@@ -20,15 +20,15 @@ import qualified Control.Comonad.Cofree as Comonad.Cofree
 import qualified Control.Lens as Lens
 import qualified Control.Monad.State.Strict as State
 import qualified Data.Bifunctor as Bifunctor
-import qualified Data.HashMap.Strict as HashMap
+import qualified Data.HashMap.Strict.InsOrd as HashMap
 import qualified Data.List as List
 import Gen.Prelude
 import Gen.Types
 
 data Env = Env
-  { _renamed :: HashMap Id Id,
-    _replaced :: HashMap Id Replace,
-    _memo :: HashMap Id (Shape Related)
+  { _renamed :: InsOrdHashMap Id Id,
+    _replaced :: InsOrdHashMap Id Replace,
+    _memo :: InsOrdHashMap Id (Shape Related)
   }
 
 $(Lens.makeLenses ''Env)
@@ -36,11 +36,11 @@ $(Lens.makeLenses ''Env)
 -- | Apply the override rules to shapes and their respective fields.
 override ::
   Functor f =>
-  HashMap Id Override ->
+  InsOrdHashMap Id Override ->
   Service f (RefF a) (Shape Related) b ->
   Service f (RefF a) (Shape Related) b
 override ovs svc =
-  svc & operations . Lens.each %~ operation
+  svc & operations . Lens.traversed %~ operation
     & shapes .~ State.evalState ss (Env rename replace mempty)
   where
     ss =
@@ -64,16 +64,16 @@ override ovs svc =
       where
         ptr = _refShape r
 
-    rename :: HashMap Id Id
+    rename :: InsOrdHashMap Id Id
     rename = vMapMaybe _renamedTo ovs
 
-    replace :: HashMap Id Replace
+    replace :: InsOrdHashMap Id Replace
     replace = vMapMaybe _replacedBy ovs
 
 type MemoS = State Env
 
 overrideShape ::
-  HashMap Id Override ->
+  InsOrdHashMap Id Override ->
   Id ->
   Shape Related ->
   MemoS (Id, Shape Related)
@@ -139,7 +139,7 @@ overrideShape ovs n c@(_ :< s) = go -- env memo n >>= maybe go (return . (n,))
         & references
         %~ f _replaceName rp . f id rn
 
-env :: MonadState Env m => Getter Env (HashMap Id a) -> Id -> m (Maybe a)
+env :: MonadState Env m => Getter Env (InsOrdHashMap Id a) -> Id -> m (Maybe a)
 env l n = Lens.uses l (HashMap.lookup n)
 
 save :: Shape Related -> MemoS (Shape Related)

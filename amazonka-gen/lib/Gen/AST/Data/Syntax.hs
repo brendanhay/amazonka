@@ -15,7 +15,7 @@ module Gen.AST.Data.Syntax where
 import qualified Control.Comonad as Comonad
 import qualified Control.Lens as Lens
 import qualified Data.Foldable as Foldable
-import qualified Data.HashMap.Strict as HashMap
+import qualified Data.HashMap.Strict.InsOrd as HashMap
 import qualified Data.List as List
 import qualified Data.Text as Text
 import Gen.AST.Data.Field
@@ -49,6 +49,8 @@ type InstDecl = Exts.InstDecl ()
 type QualConDecl = Exts.QualConDecl ()
 
 type ConDecl = Exts.ConDecl ()
+
+type FieldDecl = Exts.FieldDecl ()
 
 type FieldUpdate = Exts.FieldUpdate ()
 
@@ -93,14 +95,16 @@ toXMap = var "Lude.toXMLMap"
 toQMap = var "Lude.toQueryMap"
 
 ctorS :: HasMetadata a Identity => a -> Id -> [Field] -> Decl
-ctorS m n fs = Exts.TypeSig () [ident (smartCtorId n)] ty
+ctorS m n fs =
+  Exts.TypeSig () [ident (smartCtorId n)] ty
   where
     ty = Foldable.foldr' (Exts.TyFun ()) (tycon (typeId n)) ps
 
     ps = map (external m) (filter fieldIsParam fs)
 
 ctorD :: Id -> [Field] -> Decl
-ctorD n fs = Exts.sfun (ident (smartCtorId n)) ps (unguarded rhs) Exts.noBinds
+ctorD n fs =
+  Exts.sfun (ident (smartCtorId n)) ps (unguarded rhs) Exts.noBinds
   where
     ps = map fieldParamName (filter fieldIsParam fs)
 
@@ -153,16 +157,17 @@ lensD m t f =
 
 errorS :: Text -> Decl
 errorS n =
-  Exts.TypeSig () [ident n] . forall $
-    tyapp
-      ( tyapp
-          ( tyapp
-              (tycon "Lens.Getting")
-              (tyapp (tycon "Lude.First") (tycon "Lude.ServiceError"))
-          )
-          (tyvar "a")
-      )
-      (tycon "Lude.ServiceError")
+  Exts.TypeSig () [ident n] $
+    forall $
+      tyapp
+        ( tyapp
+            ( tyapp
+                (tycon "Lens.Getting")
+                (tyapp (tycon "Lude.First") (tycon "Lude.ServiceError"))
+            )
+            (tyvar "a")
+        )
+        (tycon "Lude.ServiceError")
   where
     cxt = Exts.CxSingle () (Exts.TypeA () (tycon "Lude.AsError" `tyapp` tyvar "a"))
 
@@ -184,28 +189,26 @@ errorD m n s c =
           str c
         ]
 
-dataD :: Id -> [QualConDecl] -> [Derive] -> Decl
-dataD n fs cs =
-  Exts.DataDecl () arity Nothing head' fs (stocks ++ newtypes)
+dataD :: Id -> Bool -> [QualConDecl] -> [Derive] -> Decl
+dataD n isNewtype fs cs =
+  Exts.DataDecl () arity Nothing head' fs (derivingD isNewtype cs)
   where
     arity
       | isNewtype = Exts.NewType ()
       | otherwise = Exts.DataType ()
 
-    isNewtype =
-      case fs of
-        [Exts.QualConDecl _ _ _ (Exts.RecDecl _ _ [_])] -> True
-        [Exts.QualConDecl _ _ _ (Exts.ConDecl _ _ [_])] -> True
-        _ -> False
-
     head' =
       Exts.DHead () (ident (typeId n))
 
+derivingD :: Bool -> [Derive] -> [Exts.Deriving ()]
+derivingD newt cs = stocks ++ newtypes
+  where
     (stocks, newtypes) =
       bimap
         (derive Exts.DerivStock)
-        (derive (if isNewtype then Exts.DerivNewtype else Exts.DerivAnyclass))
-        (partitionEithers (map derivingStrategy cs))
+        (derive (if newt then Exts.DerivNewtype else Exts.DerivAnyclass))
+        $ partitionEithers $
+          map derivingStrategy cs
 
     derive strategy = \case
       [] -> []
@@ -215,16 +218,23 @@ dataD n fs cs =
       Exts.IRule () Nothing Nothing $
         Exts.IHCon () (unqual (mappend "Lude." c))
 
-recordD :: HasMetadata a Identity => a -> Id -> [Field] -> QualConDecl
-recordD m n =
-  conD . \case
-    [] -> Exts.ConDecl () c []
-    [x] -> Exts.RecDecl () c [fieldDecl (internal m) x]
-    xs -> Exts.RecDecl () c (map (fieldDecl (internal m)) xs)
+recordD ::
+  HasMetadata a Identity =>
+  a ->
+  Id ->
+  [Field] ->
+  (Name, [(Text, FieldDecl, Maybe Help)])
+recordD m n = \case
+  [] -> (ctor, [])
+  xs -> (ctor, map fieldDecl xs)
   where
-    fieldDecl h f = Exts.FieldDecl () [ident (fieldAccessor f)] (h f)
+    fieldDecl field =
+      ( fieldAccessor field,
+        Exts.FieldDecl () [ident (fieldAccessor field)] (internal m field),
+        _refDocumentation (_fieldRef field)
+      )
 
-    c = ident (ctorId n)
+    ctor = ident (ctorId n)
 
 conD :: ConDecl -> QualConDecl
 conD = Exts.QualConDecl () Nothing Nothing
@@ -234,7 +244,8 @@ serviceS m =
   Exts.TypeSig () [ident (m ^. serviceConfig)] (tycon "Lude.Service")
 
 serviceD :: HasMetadata a Identity => a -> Retry -> Decl
-serviceD m r = Exts.patBindWhere (pvar name) record binds
+serviceD m r =
+  Exts.patBindWhere (pvar name) record binds
   where
     record =
       recconstr
@@ -585,7 +596,8 @@ funArgsD f as e =
     Exts.sfun (ident f) (map ident as) (unguarded e) Exts.noBinds
 
 assocD :: Id -> Text -> Text -> InstDecl
-assocD n x y = Exts.InsType () (tyapp (tycon x) (tycon (typeId n))) (tycon y)
+assocD n x y =
+  Exts.InsType () (tyapp (tycon x) (tycon (typeId n))) (tycon y)
 
 decodeD :: Text -> Id -> Text -> ([a] -> Exp) -> [a] -> Decl
 decodeD c n f dec =
@@ -831,13 +843,15 @@ responseF p r fs
     suf = "Res.receive" <> Protocol.suffix p
 
 waiterS :: Id -> Waiter a -> Decl
-waiterS n w = Exts.TypeSig () [ident c] $ tyapp (tycon "Wait.Wait") (tycon k)
+waiterS n w =
+  Exts.TypeSig () [ident c] $ tyapp (tycon "Wait.Wait") (tycon k)
   where
     k = w ^. waitOperation . Lens.to typeId
     c = smartCtorId n
 
 waiterD :: Id -> Waiter Field -> Decl
-waiterD n w = Exts.sfun (ident c) [] (unguarded rhs) Exts.noBinds
+waiterD n w =
+  Exts.sfun (ident c) [] (unguarded rhs) Exts.noBinds
   where
     c = smartCtorId n
 

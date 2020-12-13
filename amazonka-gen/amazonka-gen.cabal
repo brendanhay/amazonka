@@ -79,7 +79,7 @@ library
   import:          base
   hs-source-dirs:  lib
   build-depends:
-    , aeson                 >=1.2
+    , aeson                      >=1.2
     , attoparsec
     , bytestring
     , case-insensitive
@@ -88,24 +88,25 @@ library
     , deriving-compat
     , directory
     , directory-tree
-    , ede                   >=0.3.2
+    , ede                        >=0.3.2
     , filepath
     , free
     , hashable
-    , haskell-src-exts      ^>=1.23
+    , haskell-src-exts           ^>=1.23
     , html-conduit
+    , insert-ordered-containers
     , lens
     , mtl
     , optparse-applicative
-    , parsec                >=3.1.12
+    , parsec                     >=3.1.12
     , scientific
     , semigroups
     , template-haskell
     , text
     , text-icu
-    , text-manipulate       >=0.3
+    , text-manipulate            >=0.3
     , text-regex-replace
-    , time                  >=1.9
+    , time                       >=1.9
     , transformers
     , unordered-containers
     , xml-conduit

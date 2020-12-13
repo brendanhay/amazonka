@@ -8,8 +8,8 @@
 module {{ moduleName }}
   ( {{ shape.name }}
     ( {{ shape.constructor }}
-  {% for ctor in shape.patterns %}
-    , {{ ctor.key }}
+  {% for pattern in shape.patterns %}
+    , {{ pattern.value.name }}
   {% endfor %}
     )
   ) where

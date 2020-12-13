@@ -19,15 +19,15 @@ import qualified Control.Comonad.Cofree as Comonad.Cofree
 import qualified Control.Lens as Lens
 import qualified Control.Monad.Except as Except
 import qualified Control.Monad.State.Strict as State
-import qualified Data.HashMap.Strict as HashMap
+import qualified Data.HashMap.Strict.InsOrd as HashMap
 import qualified Data.List as List
 import Gen.AST.Override
 import Gen.Prelude
 import Gen.Types
 
 data Env a = Env
-  { _overrides :: HashMap Id Override,
-    _memo :: HashMap Id (Shape a)
+  { _overrides :: InsOrdHashMap Id Override,
+    _memo :: InsOrdHashMap Id (Shape a)
   }
 
 $(Lens.makeLenses ''Env)
@@ -107,7 +107,9 @@ substitute svc@Service {..} = do
     --
     subst d n (Just r) = do
       let k = r ^. refShape
+
       x :< s <- lift (safe k _shapes)
+
       if
           | isShared x,
             d == Input -> do
@@ -158,7 +160,7 @@ save n s = memo %= HashMap.insert n s
 rename :: Id -> Id -> MemoS a ()
 rename x y = overrides %= HashMap.insert x (defaultOverride & renamedTo ?~ y)
 
-safe :: Show a => Id -> HashMap Id a -> Either String a
+safe :: Show a => Id -> InsOrdHashMap Id a -> Either String a
 safe n ss =
   maybe
     (Left ("Missing shape " ++ show n ++ ", possible matches: " ++ show (partial n ss)))

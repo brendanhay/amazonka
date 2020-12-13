@@ -53,8 +53,10 @@ import Data.Functor as Export ((<&>))
 import Data.Functor.Contravariant as Export (Contravariant)
 import Data.Functor.Identity as Export (Identity (..))
 import Data.Graph as Export (Graph, Vertex)
-import Data.HashMap.Strict as Export (HashMap)
+-- import Data.HashMap.Strict as Export (HashMap)
+import Data.HashMap.Strict.InsOrd as Export (InsOrdHashMap)
 import Data.HashSet as Export (HashSet)
+import Data.HashSet.InsOrd as Export (InsOrdHashSet)
 import Data.Hashable as Export (Hashable)
 import Data.Int as Export (Int16, Int32, Int64, Int8)
 import Data.List.NonEmpty as Export (NonEmpty ((:|)))
@@ -72,7 +74,7 @@ import Data.Word as Export (Word16, Word32, Word64, Word8)
 import GHC.Generics as Export (Generic)
 import GHC.TypeLits as Export (KnownNat, KnownSymbol, Nat, Symbol)
 import Numeric.Natural as Export (Natural)
-import Prelude as Export
+import Prelude as Export hiding (span)
 
 type LazyText = Text.Lazy.Text
 

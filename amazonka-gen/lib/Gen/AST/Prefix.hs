@@ -12,7 +12,7 @@
 -- Portability : non-portable (GHC extensions)
 module Gen.AST.Prefix
   ( prefixes,
-    acronymPrefixes
+    acronymPrefixes,
   )
 where
 
@@ -22,7 +22,7 @@ import qualified Control.Monad.Except as Except
 import qualified Control.Monad.State.Strict as State
 import qualified Data.CaseInsensitive as CI
 import qualified Data.Char as Char
-import qualified Data.HashMap.Strict as HashMap
+import qualified Data.HashMap.Strict.InsOrd as HashMap
 import qualified Data.HashSet as HashSet
 import qualified Data.Hashable as Hashable
 import qualified Data.Maybe as Maybe
@@ -33,10 +33,10 @@ import Gen.Prelude
 import Gen.Text
 import Gen.Types
 
-type Seen = HashMap (CI Text) (HashSet (CI Text))
+type Seen = InsOrdHashMap (CI Text) (HashSet (CI Text))
 
 data Env = Env
-  { _memo :: HashMap Id (Maybe Text),
+  { _memo :: InsOrdHashMap Id (Maybe Text),
     _branches :: Seen,
     _fields :: Seen
   }
@@ -45,13 +45,13 @@ $(Lens.makeLenses ''Env)
 
 type MemoP = StateT Env (Either String)
 
-prefixes :: HashMap Id (Shape Related) -> Either String (HashMap Id (Shape Prefixed))
+prefixes :: InsOrdHashMap Id (Shape Related) -> Either String (InsOrdHashMap Id (Shape Prefixed))
 prefixes ss = State.evalStateT (traverse assignPrefix ss) env
   where
     env = Env mempty mempty mempty
 
 -- -- | Record projected smart constructors in set of seen field names.
--- smartCtors :: HashMap Id (Shape a) -> Seen
+-- smartCtors :: InsOrdHashMap Id (Shape a) -> Seen
 -- smartCtors = HashMap.fromListWith (<>) . mapMaybe go . HashMap.toList
 --   where
 --     go :: (Id, Shape a) -> Maybe (CI Text, HashSet (CI Text))
@@ -115,7 +115,7 @@ assignPrefix = annotate Prefixed memo go
 overlap :: (Eq a, Hashable a) => HashSet a -> HashSet a -> Bool
 overlap xs ys = not . HashSet.null $ HashSet.intersection xs ys
 
-keys :: HashMap Id a -> HashSet (CI Text)
+keys :: InsOrdHashMap Id a -> HashSet (CI Text)
 keys = HashSet.fromList . map (CI.mk . typeId) . HashMap.keys
 
 -- | Acronym preference list.
@@ -137,7 +137,7 @@ acronymPrefixes r (stripSuffix "Response" -> n)
 
     ci = map CI.mk
 
-    xs = catMaybes [r2, r3, r4, r5, r6, r7]
+    xs = catMaybes [r2, r3, r4, r5, rN "f", rN "g", rN "h", rN "l", r6]
 
     a = camelAcronym n
     a' = upperAcronym n
@@ -152,7 +152,7 @@ acronymPrefixes r (stripSuffix "Response" -> n)
       where
         x = Manipulate.toAcronym a'
 
-    -- SomeTestTType -> S
+    -- SomeTestType -> S
     r4 = Text.toUpper <$> safeHead n
 
     -- SomeTypes -> STs (retain pural)
@@ -160,8 +160,7 @@ acronymPrefixes r (stripSuffix "Response" -> n)
       | Text.isSuffixOf "s" n = flip Text.snoc 's' <$> (r2 <|> r3)
       | otherwise = Nothing
 
-    -- VpcPeeringInfo -> lVPC
-    r6 = (<> "l") <$> r2
+    rN suffix = (<> suffix) <$> (r2 <|> r4)
 
-    -- SomeTypeName -> SomeTypeName
-    r7 = Just n
+    -- SomeTestType -> SomeTestType
+    r6 = Just n

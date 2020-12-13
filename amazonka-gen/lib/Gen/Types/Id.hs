@@ -40,7 +40,7 @@ import qualified Control.Comonad.Cofree as Comonad.Cofree
 import qualified Control.Lens as Lens
 import qualified Data.Aeson as Aeson
 import qualified Data.Char as Char
-import qualified Data.HashMap.Strict as HashMap
+import qualified Data.HashMap.Strict.InsOrd as HashMap
 import qualified Data.Hashable as Hashable
 import qualified Data.Text as Text
 import qualified Data.Text.Manipulate as Manipulate
@@ -140,7 +140,7 @@ appendId i t = i & representation <>~ t
 replaceId :: Id -> Id -> Id
 replaceId x y = x & representation .~ y ^. representation
 
-partial :: Id -> (HashMap.HashMap Id a) -> [(Id, a)]
+partial :: Id -> (InsOrdHashMap Id a) -> [(Id, a)]
 partial p m =
   let txt = Text.take 3 (memberId p)
    in HashMap.toList $

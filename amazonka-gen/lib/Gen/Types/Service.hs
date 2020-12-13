@@ -18,8 +18,8 @@ import qualified Control.Lens as Lens
 import qualified Data.Aeson as Aeson
 import Data.Aeson.Types ((.!=), (.:), (.:?), (.=))
 import qualified Data.Bifunctor as Bifunctor
-import qualified Data.HashMap.Strict as HashMap
-import qualified Data.HashSet as HashSet
+import qualified Data.HashMap.Strict.InsOrd as HashMap
+import qualified Data.HashSet.InsOrd as HashSet
 import qualified Data.List as List
 import qualified Data.Maybe as Maybe
 import qualified Data.Scientific as Scientific
@@ -274,8 +274,7 @@ instance FromJSON (Info -> MapF ()) where
 
 data StructF a = StructF
   { _structInfo :: Info,
-    _members :: HashMap Id (RefF a),
-    -- | List so it can be used for ordering.
+    _members :: InsOrdHashMap Id (RefF a),
     _required' :: [Id],
     _payload :: Maybe Id
   }
@@ -289,7 +288,7 @@ instance HasInfo (StructF a) where
   info = structInfo
 
 instance HasRefs StructF where
-  references = Lens.traverseOf (members . Lens.each)
+  references = Lens.traverseOf (members . Lens.traversed)
 
 instance FromJSON (Info -> StructF ()) where
   parseJSON = Aeson.withObject "struct" $ \o -> do
@@ -300,7 +299,7 @@ instance FromJSON (Info -> StructF ()) where
     where
       -- This ensure that the field referenced by a possible
       -- "payload":<id> has a location set.
-      body :: Maybe Id -> HashMap Id (RefF a) -> HashMap Id (RefF a)
+      body :: Maybe Id -> InsOrdHashMap Id (RefF a) -> InsOrdHashMap Id (RefF a)
       body Nothing = id
       body (Just p) = HashMap.mapWithKey f
         where
@@ -313,7 +312,7 @@ data ShapeF a
   | List (ListF a)
   | Map (MapF a)
   | Struct (StructF a)
-  | Enum Info (HashMap Id Text)
+  | Enum Info (InsOrdHashMap Id Text)
   | Lit Info Lit
   deriving stock (Functor, Foldable, Traversable)
 
@@ -463,9 +462,9 @@ serviceError m =
 data Service f a b c = Service
   { _metadata' :: Metadata f,
     _documentation :: Help,
-    _operations :: HashMap Id (Operation f a (Pager Id)),
-    _shapes :: HashMap Id b,
-    _waiters :: HashMap Id c,
+    _operations :: InsOrdHashMap Id (Operation f a (Pager Id)),
+    _shapes :: InsOrdHashMap Id b,
+    _waiters :: InsOrdHashMap Id c,
     _retry :: Retry
   }
   deriving stock (Generic)
@@ -487,7 +486,7 @@ instance FromJSON (Service Maybe (RefF ()) (ShapeF ()) (Waiter Id)) where
       <*> parseRetry (m ^. serviceAbbrev) o
     where
       pager ::
-        HashMap Id (Pager Id) ->
+        InsOrdHashMap Id (Pager Id) ->
         Operation f a () ->
         Operation f a (Pager Id)
       pager ps o = o & opPager .~ HashMap.lookup (o ^. opName) ps

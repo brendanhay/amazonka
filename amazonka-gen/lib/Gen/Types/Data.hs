@@ -49,37 +49,67 @@ instance ToJSON Fun where
         "pragmas" .= _funPragmas
       ]
 
+data Accessor = Accessor'
+  { _accessorName :: Text,
+    _accessorDecl :: Rendered,
+    _accessorDoc :: Maybe Help
+  }
+  deriving stock (Eq, Show)
+
+instance ToJSON Accessor where
+  toJSON (Accessor' name decl doc) =
+    Aeson.object
+      [ "name" .= name,
+        "declaration" .= decl,
+        "documentation" .= doc
+      ]
+
 data Prod = Prod'
   { _prodName :: Text,
     _prodDoc :: Maybe Help,
     _prodDecl :: Rendered,
+    _prodDeriving :: [Rendered],
     _prodCtor :: Fun,
     _prodLenses :: [Fun],
-    _prodAccessors :: HashMap Text Help,
+    _prodAccessors :: [Accessor],
     _prodDeps :: Set.Set Text
   }
   deriving stock (Eq, Show)
 
-prodToJSON :: ToJSON a => Solved -> Prod -> HashMap Text a -> [Pair]
+prodToJSON :: ToJSON a => Solved -> Prod -> InsOrdHashMap Text a -> [Pair]
 prodToJSON s Prod' {..} is =
   [ "type" .= Text.pack "product",
     "name" .= _prodName,
-    "constructor" .= _prodCtor,
-    "documentation" .= _prodDoc,
     "declaration" .= _prodDecl,
+    "documentation" .= _prodDoc,
+    "constructor" .= _prodCtor,
     "lenses" .= _prodLenses,
+    "deriving" .= _prodDeriving,
     "accessors" .= _prodAccessors,
     "instances" .= is,
     "shared" .= isShared s,
     "eq" .= isEq s
   ]
 
+data Pattern = Pattern'
+  { _patName :: Text,
+    _patText :: Text
+  }
+  deriving stock (Eq, Show)
+
+instance ToJSON Pattern where
+  toJSON (Pattern' name text) =
+    Aeson.object
+      [ "name" .= name,
+        "text" .= text
+      ]
+
 data Sum = Sum'
   { _sumName :: Text,
     _sumDoc :: Maybe Help,
     _sumDecl :: Rendered,
     _sumCtor :: Text,
-    _sumPatterns :: HashMap Text Text
+    _sumPatterns :: [Pattern]
   }
   deriving stock (Eq, Show)
 
@@ -91,6 +121,7 @@ sumToJSON s Sum' {..} is =
     "patterns" .= _sumPatterns,
     "documentation" .= _sumDoc,
     "declaration" .= _sumDecl,
+    "patterns" .= _sumPatterns,
     "instances" .= is,
     "shared" .= isShared s,
     "eq" .= True
@@ -114,7 +145,7 @@ instance ToJSON Gen where
 
 data SData
   = -- | A product type (record).
-    Prod !Solved Prod (HashMap Text Rendered)
+    Prod !Solved Prod (InsOrdHashMap Text Rendered)
   | -- | A nullary sum type.
     Sum !Solved Sum [Text]
   | -- | A function declaration.

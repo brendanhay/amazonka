@@ -64,7 +64,7 @@ data Override = Override
     -- | Optional fields
     _optionalFields :: [Id],
     -- | Rename fields
-    _renamedFields :: HashMap Id Id
+    _renamedFields :: InsOrdHashMap Id Id
   }
   deriving stock (Eq, Show)
 
@@ -118,9 +118,9 @@ $(Lens.makeClassy ''Versions)
 data Config = Config
   { _libraryName :: Text,
     _operationModules :: [NS],
-    _operationPlugins :: HashMap Id [Text],
+    _operationPlugins :: InsOrdHashMap Id [Text],
     _typeModules :: [NS],
-    _typeOverrides :: HashMap Id Override,
+    _typeOverrides :: InsOrdHashMap Id Override,
     _extraDependencies :: [Text]
   }
 
@@ -178,9 +178,9 @@ instance ToJSON Library where
             "exposedModules" .= List.sort (l ^. exposedModules),
             "otherModules" .= List.sort (l ^. otherModules),
             "extraDependencies" .= List.sort (l ^. extraDependencies),
-            "operations" .= (l ^.. operations . Lens.each),
-            "shapes" .= List.sort (l ^.. shapes . Lens.each),
-            "waiters" .= (l ^.. waiters . Lens.each)
+            "operations" .= (l ^.. operations . Lens.traversed),
+            "shapes" .= List.sort (l ^.. shapes . Lens.traversed),
+            "waiters" .= (l ^.. waiters . Lens.traversed)
           ]
 
 -- FIXME: Remove explicit construction of getters, just use functions.
@@ -196,10 +196,12 @@ otherModules = Lens.to f
     f x =
       x ^. operationModules
         <> x ^. typeModules
-        <> mapMaybe (shapeNS x) (x ^.. shapes . Lens.each)
-    shapeNS x s@(Prod _ _ _) = Just $ (x ^. typesNS) <> ((mkNS . typeId) $ identifier s)
-    shapeNS x s@(Sum _ _ _) = Just $ (x ^. typesNS) <> ((mkNS . typeId) $ identifier s)
-    shapeNS _ (Fun _) = Nothing
+        <> mapMaybe (shapeNS x) (x ^.. shapes . Lens.traversed)
+
+    shapeNS x = \case
+      s@Prod {} -> Just $ (x ^. typesNS) <> ((mkNS . typeId) $ identifier s)
+      s@Sum {} -> Just $ (x ^. typesNS) <> ((mkNS . typeId) $ identifier s)
+      Fun _ -> Nothing
 
 exposedModules :: Getter Library [NS]
 exposedModules = Lens.to f
@@ -208,7 +210,7 @@ exposedModules = Lens.to f
       let ns = x ^. libraryNS
        in x ^. typesNS :
           x ^. waitersNS :
-          x ^.. operations . Lens.each . Lens.to (operationNS ns . Lens.view opName)
+          x ^.. operations . Lens.traversed . Lens.to (operationNS ns . Lens.view opName)
 
 data Templates = Templates
   { cabalTemplate :: !Template,

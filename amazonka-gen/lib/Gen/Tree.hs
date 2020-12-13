@@ -78,11 +78,11 @@ populate d Templates {..} l = (d :/) . dir lib <$> layout
                 [ dir
                     "AWS"
                     [ dir svc $
-                        [ dir "Types" (mapMaybe shape (l ^.. shapes . Lens.each)),
+                        [ dir "Types" (mapMaybe shape (l ^.. shapes . Lens.traversed)),
                           mod (l ^. typesNS) (typeImports l) typesTemplate,
                           mod (l ^. waitersNS) (waiterImports l) waitersTemplate
                         ]
-                          ++ map op (l ^.. operations . Lens.each),
+                          ++ map op (l ^.. operations . Lens.traversed),
                       mod (l ^. libraryNS) mempty tocTemplate
                     ]
                 ]
@@ -115,7 +115,7 @@ populate d Templates {..} l = (d :/) . dir lib <$> layout
                 ]
             ],
           dir "fixture" $
-            concatMap fixture (l ^.. operations . Lens.each),
+            concatMap fixture (l ^.. operations . Lens.traversed),
           file (lib <.> "cabal") cabalTemplate,
           file "README.md" readmeTemplate
         ]

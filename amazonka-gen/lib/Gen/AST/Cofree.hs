@@ -15,7 +15,7 @@ import qualified Control.Comonad.Cofree as Comonad.Cofree
 import qualified Control.Lens as Lens
 import qualified Control.Monad.Except as Except
 import qualified Control.Monad.State.Strict as State
-import qualified Data.HashMap.Strict as HashMap
+import qualified Data.HashMap.Strict.InsOrd as HashMap
 import Gen.Prelude
 import Gen.Types
 
@@ -29,7 +29,7 @@ cofree x = go
 attach ::
   (Traversable t, HasId a, Monoid b) =>
   (a -> b -> c) ->
-  HashMap Id b ->
+  InsOrdHashMap Id b ->
   Cofree t a ->
   Cofree t c
 attach ctor m = Comonad.extend (go . Comonad.extract)
@@ -41,7 +41,7 @@ attach ctor m = Comonad.extend (go . Comonad.extract)
 annotate ::
   (Traversable t, MonadState s m, HasId a, Show b) =>
   (a -> b -> c) ->
-  Lens' s (HashMap Id b) ->
+  Lens' s (InsOrdHashMap Id b) ->
   (Cofree t a -> m b) ->
   Cofree t a ->
   m (Cofree t c)
@@ -51,7 +51,7 @@ annotate ctor l f = sequence . Comonad.extend go
 
 memoise ::
   (MonadState s m, HasId a, Show b) =>
-  Lens' s (HashMap Id b) ->
+  Lens' s (InsOrdHashMap Id b) ->
   (a -> m b) ->
   a ->
   m b
@@ -64,9 +64,9 @@ memoise l f x = Lens.uses l (HashMap.lookup n) >>= maybe go return
 
     n = identifier x
 
-type MemoE = StateT (HashMap Id (Shape Id)) (Either String)
+type MemoE = StateT (InsOrdHashMap Id (Shape Id)) (Either String)
 
-elaborate :: forall a. Show a => HashMap Id (ShapeF a) -> Either String (HashMap Id (Shape Id))
+elaborate :: forall a. Show a => InsOrdHashMap Id (ShapeF a) -> Either String (InsOrdHashMap Id (Shape Id))
 elaborate m = State.evalStateT (HashMap.traverseWithKey (shape []) m) mempty
   where
     shape :: [Id] -> Id -> ShapeF a -> MemoE (Shape Id)
